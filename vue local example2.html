@@ -11,9 +11,9 @@
 <body>
     <div id="app">
        <div class="center">
-            <button @click="prev">Prev</button>
-            <img src="imgArray[index]" alt="">
-            <button @click="next">Next</button>
+            <button @click="prev" v-show="index!=0">Prev</button>
+            <img :src="imgArray[index]" alt="">
+            <button @click="next" v-show="index<imgArray.length-1">Next</button>
        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -22,28 +22,18 @@
             el: "#app",
             data: {
                imgArray:[
-                "./image/01.jpg",
-                "./image/02.png",
-                "./image/03.jpg",
-                "./image/04.jpg",
-                "./image/05.jpg",
+                "https://classes.engineering.wustl.edu/cse330/content/brookings.jpg",
+                "https://upload.wikimedia.org/wikipedia/zh/1/13/Baidu_baike_logo.svg",
+                "https://utawarerumono.jp/manage/wp-content/themes/hakuoro-new/_assets/images/favicon/apple-touch-icon-60x60.png",
                ],
                index:0,
             },
             methods: {
                 prev:function(){
-                    if(this.index>0){
                         this.index--;
-                    }else{
-                        this.index=4;
-                    }
                 },
                 next:function(){
-                    if(this.index<5){
                         this.index++;
-                    }else{
-                        this.index=0;
-                    }
                 },
             }
 
