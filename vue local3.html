@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue v-on指令</title>
+</head>
+
+<body>
+    <div id="app">
+       <input type="button" value="v-on click button 1" v-on:click="doIt"><br>
+       <input type="button" value="v-on click button 2" @click="doIt"><br>
+       <input type="button" value="v-on doube click button" @dblclick="doIt"><br>
+       <input type="button" value="v-on monseenter button" @monseenter="doIt"><br>
+       <h3 @click="addFood">click add good: {{food}}</h3>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data:{
+                food:"apple"
+            },
+            methods: {
+                doIt:function(){
+                    alert("do it!");
+                },
+                addFood:function(){
+                    this.food += " good";
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
