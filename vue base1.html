@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewpoint" content = "width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Vue el挂载点</title>
+    </head>
+    <body>
+        {{message}}
+        <div id = "app" class="app">
+            {{message}}
+            <span>
+                {{message}}
+            </span>
+        </div>
+        <h2 id = "app" class="app">
+            {{message}}
+            <span>
+                {{message}}
+            </span>
+        </h2>
+        <!-- 仅可以渲染el元素内部 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el:"#app",//id渲染
+                //el:".app",class渲染
+                //el:"div", div 渲染
+                data:{
+                    message:"Hello Vue!"
+                }
+            })
+        </script>
+    </body>
+</html>
