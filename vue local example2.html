@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue v-bind指令</title>
+</head>
+
+<body>
+    <div id="app">
+       <div class="center">
+            <button @click="prev">Prev</button>
+            <img src="imgArray[index]" alt="">
+            <button @click="next">Next</button>
+       </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+               imgArray:[
+                "./image/01.jpg",
+                "./image/02.png",
+                "./image/03.jpg",
+                "./image/04.jpg",
+                "./image/05.jpg",
+               ],
+               index:0,
+            },
+            methods: {
+                prev:function(){
+                    if(this.index>0){
+                        this.index--;
+                    }else{
+                        this.index=4;
+                    }
+                },
+                next:function(){
+                    if(this.index<5){
+                        this.index++;
+                    }else{
+                        this.index=0;
+                    }
+                },
+            }
+
+        })
+    </script>
+</body>
+
+</html>

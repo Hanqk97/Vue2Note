@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue v-show指令</title>
+</head>
+
+<body>
+    <div id="app">
+        <img v-show="isShow" src="https://bkssl.bdimg.com/cms/static/baike.png" alt=""><br>
+        <br><input type="button" value="change show status" @click="changeIsShow">
+        <br><img v-show="time>=8" src="https://bkssl.bdimg.com/cms/static/baike.png" alt="">
+        <br><input type="button" value="add times" @click="addTime">
+        <br><br>times:{{time}}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                isShow: false,
+                time: 0,
+            },
+            methods: {
+                changeIsShow: function () {
+                    this.isShow = !this.isShow;
+                },
+                addTime: function () {
+                    this.time++;
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

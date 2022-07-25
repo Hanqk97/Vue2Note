@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue v-if指令</title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-if="isShow">Hello Vue!(v-if)</p>
+        <p v-show="isShow">Hello Vue!(v-show)</p>
+        <input type="button" value="change show" @click="changeIsShow">
+        <h2 v-if="temperature>=38">Hot!</h2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                isShow: false,
+                temperature:36,
+            },
+            methods: {
+                changeIsShow: function () {
+                    this.isShow = !this.isShow;
+                },
+            }
+
+        })
+    </script>
+</body>
+
+</html>

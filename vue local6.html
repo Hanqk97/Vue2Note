@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue v-bind指令</title>
+    <style>
+        .active{
+            border: 8px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+       <img v-bind:src="content" alt="">
+       <br>
+       <img :src="content" alt="" :title="title+'!'" 
+       :class="isActive?'active':''" @click="changeActive">
+       <!-- 鼠标放到图片处显示 -->
+       <br>
+       <img :src="content" alt="" :title="title+'!'" 
+       :class="{active:isActive}" @click="changeActive">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+               content:"https://utawarerumono.jp/manage/wp-content/themes/hakuoro-new/_assets/images/favicon/apple-touch-icon-60x60.png",
+                title:"传颂之物",
+                isActive:false,
+            },
+            methods: {
+                changeActive:function(){
+                    this.isActive=!this.isActive;
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>
