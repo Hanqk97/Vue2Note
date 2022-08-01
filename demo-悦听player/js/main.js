@@ -50,10 +50,10 @@ var app = new Vue({
     // 歌曲搜索
     searchMusic: function() {
       var that = this;
-      axios.get("https://y.qq.com/n/ryqq/search?w=" + this.query).then(
+      axios.get("http://localhost:3000/" ).then(
         function(response) {
           console.log(response);
-          // that.musicList = response.data.result.songs;
+          that.musicList = response.data.result.songs;
           // console.log(response.data.result.songs);
         },
         function(err) {}
@@ -64,31 +64,31 @@ var app = new Vue({
       //   console.log(musicId);
       var that = this;
       // 获取歌曲地址
-      axios.get("https://autumnfish.cn/song/url?id=" + musicId).then(
+      axios.get("https://music.163.com/song/media/outer/url?id=" + musicId).then(
         function(response) {
-          // console.log(response);
+          console.log(response);
           // console.log(response.data.data[0].url);
-          that.musicUrl = response.data.data[0].url;
+          // that.musicUrl = response.data.data[0].url;
         },
         function(err) {}
       );
 
       // 歌曲详情获取
-      axios.get("https://autumnfish.cn/song/detail?ids=" + musicId).then(
+      axios.get("http://iwenwiki.com:3000/playlist/detail?id=" + musicId).then(
         function(response) {
-          // console.log(response);
+          console.log(response);
           // console.log(response.data.songs[0].al.picUrl);
-          that.musicCover = response.data.songs[0].al.picUrl;
+          // that.musicCover = response.data.songs[0].al.picUrl;
         },
         function(err) {}
       );
 
       // 歌曲评论获取
-      axios.get("https://autumnfish.cn/comment/hot?type=0&id=" + musicId).then(
+      axios.get("http://iwenwiki.com:3000/recommend/resource" + musicId).then(
         function(response) {
-          // console.log(response);
+          console.log(response);
           // console.log(response.data.hotComments);
-          that.hotComments = response.data.hotComments;
+          // that.hotComments = response.data.hotComments;
         },
         function(err) {}
       );
